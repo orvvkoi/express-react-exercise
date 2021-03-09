@@ -1,0 +1,47 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "useBuiltIns": "usage",
+        "corejs": {
+          "version": 3,
+          "proposals": true
+        },
+        "targets": {
+          "chrome": "55"
+        },
+        "debug": false
+      }
+    ],
+    "@babel/preset-react"
+  ],
+  "plugins": [
+    [
+      "@babel/plugin-proposal-class-properties"
+    ],
+    [
+      "babel-plugin-root-import",
+      {
+        "paths": [
+          {
+            "rootPathSuffix": "./",
+            "rootPathPrefix": "@root/"
+          },
+          {
+            "rootPathSuffix": "./config",
+            "rootPathPrefix": "@config/"
+          },
+          {
+            "rootPathSuffix": "./server",
+            "rootPathPrefix": "@server/"
+          },
+          {
+            "rootPathSuffix": "./client",
+            "rootPathPrefix": "@client/"
+          }
+        ]
+      }
+    ]
+  ]
+}
