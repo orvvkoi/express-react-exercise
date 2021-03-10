@@ -17,12 +17,17 @@ module.exports = merge(common, {
         ]
     },
     plugins: [
-        new CleanWebpackPlugin(),
+        new CleanWebpackPlugin({
+            cleanOnceBeforeBuildPatterns: [
+                `${paths.build}/*`,
+                `${paths.dist}/*`
+            ]
+        }),
         // Extracts CSS into separate files
         // Note: style-loader is for development, MiniCssExtractPlugin is for production
         new MiniCssExtractPlugin({
-            filename: `${paths.public}/[name].[contenthash].css`,
-            chunkFilename: `${paths.public}/chunk.[id].css`
+            filename: `${paths.public} / [name].[contenthash].css`,
+            chunkFilename: `${paths.public} / chunk.[id].css`
         })
     ],
     optimization: {
