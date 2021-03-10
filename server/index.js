@@ -51,14 +51,10 @@ app.use(cors());
 app.use('/', routes);
 
 // start server
-const server = app.listen(process.env.SERVER_PORT, () => {
+app.listen(process.env.SERVER_PORT, () => {
     console.log(
         `Server is started with http://localhost:${process.env.SERVER_PORT}`
     );
 });
-
-const io = require('socket.io')(server);
-// The io instance is set in Express so it can be grabbed in a route
-app.set('socketio', io);
 
 module.exports = app;
